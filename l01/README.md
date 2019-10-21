@@ -5,6 +5,14 @@
 ### Zadanie 1
 Przeanalizuj i zaimplementuj algorytmy wyszukiwania wzorca z wykorzystaniem automatów skończonych i Knutha-Morrisa-Pratta (opisane w książce: Cormen T.H., LeisersonCh.E., Rivest R.L.:Wprowadzenie do algorytmów, rozdział 34.3 i 34.4, ISBN 83-204-2144-6).
 
+## Analiza
+### Złożoności obliczeniowe:
+
+|                    | Preprocessing | Matching      |
+| ------------------ | ------------- | ------------- |
+| Finite automata    | ![img](https://latex.codecogs.com/gif.latex?O%28%7Bm%5E%7B3%7D%5Cleft%20%7C%20%5CSigma%20%5Cright%20%7C%7D%29) | ![imng](https://latex.codecogs.com/gif.latex?%5CTheta%28n%29) |
+| Knuth-Morris-Pratt | ![img](https://latex.codecogs.com/gif.latex?%5CTheta%28m%29) | ![imng](https://latex.codecogs.com/gif.latex?%5CTheta%28n%29) |
+
 ## Rozwiązanie
 
 Rozwiązaniem tej listy zadań jest skrypt napisany w języku Python. Poniżej znajduje się instrukcja wraz z przykładowym użyciem.
