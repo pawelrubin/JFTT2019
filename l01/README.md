@@ -23,7 +23,7 @@ Domyślnym algorytmem jest algorytm Knutha-Morrisa-Pratta. Aby skorzystać z wys
 
 #### KMP
 ```shell
-$ python pattern_matcher.py -t ąćąćąćąśśśćąćąćąćąćśśśćąćś -p "ćąć"
+$ python pattern_matcher.py -t "ąćąćąćąśśśćąćąćąćąćśśśćąćś" -p "ćąć"
 Knuth-Morris-Pratt Matcher.
 [1, 3, 10, 12, 14, 16, 22]
 ```
