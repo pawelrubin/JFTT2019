@@ -1,2 +1,2 @@
 # JFTT2019
-Rozwiązania zadań z kursu Języki Formalne i Teoria Translacji.
+Rozwiązania zadań z kursu *Języki Formalne i Techniki Translacji*.
