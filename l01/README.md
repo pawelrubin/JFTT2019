@@ -21,14 +21,14 @@ Domyślnym algorytmem jest algorytm Knutha-Morrisa-Pratta. Aby skorzystać z wys
   - `--alphabet/-a` Alfabet dla **Finite Automaton Matcher**
 ### Przykładowe użycie
 
-#### DFA
+#### KMP
 ```shell
 $ python pattern_matcher.py -t ąćąćąćąśśśćąćąćąćąćśśśćąćś -p "ćąć"
 Knuth-Morris-Pratt Matcher.
 [1, 3, 10, 12, 14, 16, 22]
 ```
 
-#### KMP
+#### DFA
 ```shell
 $ python pattern_matcher.py -t "\|\|\/\|/\ \\\ \\\ \/// //\|\|" -p "|" -a "\| /"
 Finite Automaton Matcher.
