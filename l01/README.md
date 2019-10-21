@@ -13,6 +13,8 @@ Przeanalizuj i zaimplementuj algorytmy wyszukiwania wzorca z wykorzystaniem auto
 | Finite automata    | ![img](https://latex.codecogs.com/gif.latex?O%28%7Bm%5E%7B3%7D%5Cleft%20%7C%20%5CSigma%20%5Cright%20%7C%7D%29) | ![imng](https://latex.codecogs.com/gif.latex?%5CTheta%28n%29) |
 | Knuth-Morris-Pratt | ![img](https://latex.codecogs.com/gif.latex?%5CTheta%28m%29) | ![imng](https://latex.codecogs.com/gif.latex?%5CTheta%28n%29) |
 
+gdzie `m` oznacza długość wzorca, a `n` długość tekstu.
+
 ## Rozwiązanie
 
 Rozwiązaniem tej listy zadań jest skrypt napisany w języku Python. Poniżej znajduje się instrukcja wraz z przykładowym użyciem.
