@@ -1,0 +1,86 @@
+%{
+  #include <math.h>
+  #include <iostream>
+  #include <string>
+  int yylex (void);
+  void yyerror (std::string);
+  std::string rp_notation = "";
+  bool error = false;
+%}
+
+
+/* Bison declarations. */
+%token NUM
+%token LB
+%token RB
+%token END
+%token ERROR
+
+%left SUB ADD
+%left MUL DIV MOD
+%precedence NEG   /* negation--unary SUB */
+%right EXP        /* exponentiation */
+
+
+%% /* The grammar follows. */
+
+input:
+  %empty
+| input line
+;
+
+
+line:
+  END
+| exp END {
+  if (!error) {
+    std::cout << rp_notation << std::endl << "=> " << $1 << std::endl;
+  }
+  rp_notation = "";
+  error = false;
+}
+| error END {
+  std::cerr << "Syntax error" << std::endl;
+  error = false;
+  rp_notation = "";
+}
+;
+
+
+exp:
+  NUM                   { rp_notation += std::to_string($1) + " "; $$ = $1; }
+| exp ADD exp           { rp_notation += "+ "; $$ = $1 + $3;          }
+| exp SUB exp           { rp_notation += "- "; $$ = $1 - $3;          }
+| exp MUL exp           { rp_notation += "* "; $$ = $1 * $3;          }
+| exp DIV exp           {
+                          rp_notation += "/ ";
+                          if ($3 != 0)
+                            $$ = $1 / $3;
+                          else
+                            yyerror ("Division by zero");
+                        }
+| exp MOD exp           {
+                          rp_notation += "% ";
+                          if ($3 != 0)
+                            $$ = ($1 % $3 + $3) % $3;
+                          else
+                            yyerror ("Modulo by zero");
+                        }
+| SUB exp  %prec NEG    { rp_notation += "- "; $$ = -$2;              }
+| exp EXP exp           { rp_notation += "^ "; $$ = pow ($1, $3);     }
+| LB exp RB             { $$ = $2;                                    }
+;
+
+%%
+
+/* Called by yyparse on error. */
+void yyerror (std::string s)
+{
+  error = true;
+  std::cerr << "Error: " << s << std::endl;
+}
+
+int main (void)
+{
+  return yyparse ();
+}
