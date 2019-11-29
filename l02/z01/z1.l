@@ -9,15 +9,15 @@ int WC=0;
 
 %%
 ^[[:blank:]]+(\n)?  ;
-[[:blank:]]+(\n)?$  ;
+[[:blank:]]+(\n)?$  REJECT;
 [[:blank:]]+        printf(" ");
 [[:alnum:]]+        { ECHO; WC++; };
-\n			        { printf("\n"); NL++; }
+\n			        { printf("\n"); NL++;}
 %%
 
 int yywrap() {
-//    printf("NL = %d\n", NL);
-//    printf("WC = %d\n", WC);
+    printf("NL = %d\n", NL);
+    printf("WC = %d\n", WC);
     return 1; 
 } 
 int main() { 
