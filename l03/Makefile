@@ -10,5 +10,5 @@ calc.tab: calc.ypp
 clean:
 	rm calc.tab.* lexer.l.*
 
-cleanall:
+cleanall: clean
 	rm calc
