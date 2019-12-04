@@ -1,5 +1,5 @@
 all: calc.tab lexer.l.c
-	g++ -o calc calc.tab.cpp lexer.l.c -lm
+	g++ -o calc calc.tab.cpp lexer.l.c
 
 lexer.l.c: lexer.l
 	flex -o lexer.l.c lexer.l
